@@ -1,0 +1,250 @@
+{
+    "version": 4,
+    "entities": [
+        {
+            "entity": {
+                "type": "Project",
+                "fullProjectTag": "3541429f-d7d9-4618-8dfe-83b1771b5cc4",
+                "id": "8ee47f1f-76e8-4b60-b5bf-a8e65f945620",
+                "lastModified": "2018-11-27T11:20:04.000+00:00",
+                "lastUpdaterId": "624ad621-bcdb-4176-8ad6-21bcdbc176fc",
+                "lastUpdaterName": "Mourad ouachani",
+                "name": "SalesForceTestAPI",
+                "tag": "de5a4e49-c2e9-466b-bdee-36b7a0291296",
+                "updatedAt": "2018-11-27T11:20:04.257Z"
+            },
+            "children": [
+                {
+                    "entity": {
+                        "type": "Scenario",
+                        "description": "",
+                        "id": "d05a8fc1-2f0e-485b-9b43-71278ea2d7d0",
+                        "lastUpdaterId": "624ad621-bcdb-4176-8ad6-21bcdbc176fc",
+                        "lastUpdaterName": "Mourad ouachani",
+                        "name": "Manage case",
+                        "tag": "da9bcc27-4781-43a7-950a-9c82c4f4b1de",
+                        "updatedAt": "2018-11-27T11:20:04.257Z",
+                        "parentId": "8ee47f1f-76e8-4b60-b5bf-a8e65f945620"
+                    },
+                    "children": [
+                        {
+                            "entity": {
+                                "uriEditor": true,
+                                "type": "Request",
+                                "method": {
+                                    "requestBody": true,
+                                    "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                                    "name": "POST"
+                                },
+                                "body": {
+                                    "formBody": {
+                                        "overrideContentType": true,
+                                        "encoding": "application/x-www-form-urlencoded",
+                                        "items": []
+                                    },
+                                    "bodyType": "Text",
+                                    "autoSetLength": true,
+                                    "textBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n  <Name>Account deleted </Name>\n</root>"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "query": {
+                                        "delimiter": "&",
+                                        "items": []
+                                    },
+                                    "scheme": {
+                                        "name": "http",
+                                        "version": "V11"
+                                    },
+                                    "host": "52.56.186.203:8040",
+                                    "path": "/services/cases/addCase"
+                                },
+                                "id": "68c3ac5b-6dce-4e85-8b03-d0a1b548a0be",
+                                "lastUpdaterId": "624ad621-bcdb-4176-8ad6-21bcdbc176fc",
+                                "lastUpdaterName": "Mourad ouachani",
+                                "name": "createCase",
+                                "tag": "a5a1d019-bb3f-4c4b-88a9-9dd9c2adc121",
+                                "updatedAt": "2018-11-27T11:20:04.257Z",
+                                "weight": "V",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Content-Type",
+                                        "value": "application/xml"
+                                    }
+                                ],
+                                "assertions": [
+                                    {
+                                        "comparison": "Equals",
+                                        "subject": "ResponseStatus",
+                                        "path": "code",
+                                        "value": "200"
+                                    }
+                                ],
+                                "parentId": "d05a8fc1-2f0e-485b-9b43-71278ea2d7d0"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "uriEditor": true,
+                                "type": "Request",
+                                "method": {
+                                    "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                                    "name": "GET"
+                                },
+                                "body": {
+                                    "formBody": {
+                                        "overrideContentType": true,
+                                        "encoding": "application/x-www-form-urlencoded",
+                                        "items": []
+                                    },
+                                    "bodyType": "Text",
+                                    "autoSetLength": true,
+                                    "textBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n  <id>5009E000009HkR7QAK</id>\n  <reason>Test</reason>\n</root>"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "query": {
+                                        "delimiter": "&",
+                                        "items": []
+                                    },
+                                    "scheme": {
+                                        "name": "http",
+                                        "version": "V11"
+                                    },
+                                    "host": "52.56.186.203:8040",
+                                    "path": "/services/cases/getCase/${getEntityById(\"68c3ac5b-6dce-4e85-8b03-d0a1b548a0be\").\"response\".\"body\".xPath(\"/root/salesforce_id/text()\")}"
+                                },
+                                "id": "e2ccda1f-8f0c-4b0d-a6f1-289005a7d36f",
+                                "lastUpdaterId": "624ad621-bcdb-4176-8ad6-21bcdbc176fc",
+                                "lastUpdaterName": "Mourad ouachani",
+                                "name": "getCase",
+                                "tag": "3541429f-d7d9-4618-8dfe-83b1771b5cc4",
+                                "updatedAt": "2018-11-27T11:20:04.257Z",
+                                "weight": "h",
+                                "headers": [],
+                                "assertions": [
+                                    {
+                                        "comparison": "Equals",
+                                        "subject": "ResponseStatus",
+                                        "path": "code",
+                                        "value": "200"
+                                    }
+                                ],
+                                "parentId": "d05a8fc1-2f0e-485b-9b43-71278ea2d7d0"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "uriEditor": true,
+                                "type": "Request",
+                                "method": {
+                                    "requestBody": true,
+                                    "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                                    "name": "POST"
+                                },
+                                "body": {
+                                    "formBody": {
+                                        "overrideContentType": true,
+                                        "encoding": "application/x-www-form-urlencoded",
+                                        "items": []
+                                    },
+                                    "bodyType": "Text",
+                                    "autoSetLength": true,
+                                    "textBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n  <id>${getEntityById(\"68c3ac5b-6dce-4e85-8b03-d0a1b548a0be\").\"response\".\"body\".xPath(\"/root/salesforce_id/text()\")}</id>\n  <Name>Account not found in SAP</Name>\n</root>"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "query": {
+                                        "delimiter": "&",
+                                        "items": []
+                                    },
+                                    "scheme": {
+                                        "name": "http",
+                                        "version": "V11"
+                                    },
+                                    "host": "ec2amaz-kap6c93:8040",
+                                    "path": "/services/cases/updateCase"
+                                },
+                                "id": "2b00de16-0e18-41c3-98c0-851c915a9b22",
+                                "lastUpdaterId": "624ad621-bcdb-4176-8ad6-21bcdbc176fc",
+                                "lastUpdaterName": "Mourad ouachani",
+                                "name": "updateCase",
+                                "tag": "b603c308-89c8-463c-9e26-8edb5b195dda",
+                                "updatedAt": "2018-11-27T11:20:04.257Z",
+                                "weight": "q",
+                                "headers": [
+                                    {
+                                        "enabled": true,
+                                        "name": "Content-Type",
+                                        "value": "application/xml"
+                                    }
+                                ],
+                                "assertions": [
+                                    {
+                                        "comparison": "Equals",
+                                        "subject": "ResponseStatus",
+                                        "path": "code",
+                                        "value": "200"
+                                    }
+                                ],
+                                "parentId": "d05a8fc1-2f0e-485b-9b43-71278ea2d7d0"
+                            }
+                        },
+                        {
+                            "entity": {
+                                "uriEditor": true,
+                                "type": "Request",
+                                "method": {
+                                    "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+                                    "name": "DELETE"
+                                },
+                                "body": {
+                                    "formBody": {
+                                        "overrideContentType": true,
+                                        "encoding": "application/x-www-form-urlencoded",
+                                        "items": []
+                                    },
+                                    "bodyType": "Text",
+                                    "autoSetLength": true,
+                                    "textBody": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n  <id>5009E000009HkR7QAK</id>\n  <reason>Test</reason>\n</root>"
+                                },
+                                "headersType": "Form",
+                                "uri": {
+                                    "query": {
+                                        "delimiter": "&",
+                                        "items": []
+                                    },
+                                    "scheme": {
+                                        "name": "http",
+                                        "version": "V11"
+                                    },
+                                    "host": "localhost:8040",
+                                    "path": "/services/cases/deleteCase/${getEntityById(\"68c3ac5b-6dce-4e85-8b03-d0a1b548a0be\").\"response\".\"body\".xPath(\"/root/salesforce_id/text()\")}"
+                                },
+                                "id": "3145fe73-b6d8-4da8-a8ff-4b3a1a746007",
+                                "lastUpdaterId": "624ad621-bcdb-4176-8ad6-21bcdbc176fc",
+                                "lastUpdaterName": "Mourad ouachani",
+                                "name": "deleteCase",
+                                "tag": "b37e1b92-eb1f-43cb-b65f-97fd312b3979",
+                                "updatedAt": "2018-11-27T11:20:04.257Z",
+                                "weight": "v",
+                                "headers": [],
+                                "assertions": [
+                                    {
+                                        "comparison": "Equals",
+                                        "subject": "ResponseStatus",
+                                        "path": "code",
+                                        "value": "200"
+                                    }
+                                ],
+                                "parentId": "d05a8fc1-2f0e-485b-9b43-71278ea2d7d0"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "front-version": "2.104.1"
+}
